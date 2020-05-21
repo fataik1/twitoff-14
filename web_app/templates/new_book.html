@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+    {% extends "bootstrap_layout.html" %}
+    {% set active_page = "new_book" %}
+
+    {% block content %}
 
 
     <h1>New Books Page</h1>
@@ -32,3 +35,4 @@
 
 </body>
 </html>
+{% endblock %}
