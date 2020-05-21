@@ -56,7 +56,7 @@ def predict():
     #results = classifier.predict([embeddings[0]])[0] #>elonmusk
 
     # basilica_api = basilica_api_client()
-    example_embedding = basilica_connection.embed_sentence(tweet_text)
+    example_embedding = basilica_connection.embed_sentence(tweet_text, model="twitter")
     result = classifier.predict([example_embedding])
     # #breakpoint()
 
