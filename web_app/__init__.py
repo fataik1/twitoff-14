@@ -1,5 +1,6 @@
 #web_app/__init__.py
-
+import os
+from dotenv import load_dotenv
 from flask import Flask
 
 from web_app.models import db, migrate
@@ -8,11 +9,13 @@ from web_app.routes.book_routes import book_routes
 from web_app.routes.twitter_routes import twitter_routes
 from web_app.routes.stats_routes import stats_routes
 
+
+load_dotenv()
 #DATABASE_URI = "sqlite:///web_app_99.db" # using relative filepath
 #DATABASE_URI = "sqlite:////Users/Username/Desktop/your-repo-name/web_app_99.db" # using absolute filepath on Mac (recommended)
-DATABASE_URI = "sqlite:///C:\\Users\\kingf\\Desktop\\TWITOFF-14\\twitoff_development_14.db" # using absolute filepath on Windows (recommended) h/t: https://stackoverflow.com/a/19262231/670433
+DATABASE_URI =  os.getenv("DATABASE_URL") #sqlite:///C:\\Users\\kingf\\Desktop\\TWITOFF-14\\twitoff_development_14.db" # using absolute filepath on Windows (recommended) h/t: https://stackoverflow.com/a/19262231/670433
 
-SECRET_KEY = "super secret" #todo: use env var to customize
+SECRET_KEY = ("SECRET_KEY") #todo: use env var to customize
 
 def create_app():
     app = Flask(__name__)
