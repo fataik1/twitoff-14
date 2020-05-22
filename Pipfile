@@ -13,9 +13,9 @@ python-dotenv = "*"
 requests = "*"
 basilica = "*"
 tweepy = "*"
-numpy = "*"
-scipy = "*"
 scikit-learn = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
