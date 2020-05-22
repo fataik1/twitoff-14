@@ -16,7 +16,6 @@ class Record(DB.Model):
 
 @APP.route('/')
 def root():
-    # import openaq
     # api = openaq.OpenAQ()
     # status, body = api.measurements(city='Los Angeles', parameter='pm25')
     # # utc_datetime = body['results'][1]['date']['utc']
@@ -34,9 +33,9 @@ def root():
     pret_list = []
     for r in result:
         pret_list.append('Date : {}, Time : {} and Value : {}'.format(r[0][:10], r[0][11:19], r[1]))
-    #return str(result)
-    return render_template('aq_dashboard.html', datas=pret_list)
-
+    return str(result)
+    #return render_template('aq_dashboard.html', datas=pret_list)
+    
 @APP.route('/refresh')
 def refresh():
     """Pull fresh data from Open AQ and replace existing data."""
@@ -52,4 +51,4 @@ def refresh():
             db_data = Record(datetime=tup[0], value=tup[1])
             DB.session.add(db_data)
     DB.session.commit()
-    return str(tuples)
+    return 'Data refreshed!'
